@@ -4,7 +4,7 @@
 
 using namespace std;
 
-HashedStack::HashedStack(const char* letters, int length) {
+HashedStack::HashedStack(const char* letters, int length, int initial) {
 	if(length < 2){
 		throw 1;
 	}
@@ -12,11 +12,13 @@ HashedStack::HashedStack(const char* letters, int length) {
 	basemap = new map<char, Node*>();
 
 	first = new Node(0,0,letters[0]);
+	first->time = initial;
 	last = first;
 	basemap->operator[] (letters[0])=first;
 
 	for(int i = 1; i < length; i++) {
 		Node* newEnd = new Node(last, 0, letters[i]);
+		newEnd->time = initial;
 		basemap->operator[] (letters[i])=newEnd;
 		last->next = newEnd;
 		last = newEnd;

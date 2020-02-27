@@ -26,7 +26,7 @@ private:
     Node* last;
 
 public:
-	HashedStack(const char* letters, int length);
+	HashedStack(const char* letters, int length, int initial);
 	void moveToTop(char letter, int time);
 	char getBottom();
 	char getSecondFromBottom();
